@@ -1,7 +1,5 @@
 import mongoose from 'mongoose'
 
-//export MONGODB_URI='mongodb+srv://mongodb:k3HS0UszcmCcbKM5@dejalma-tbzy3.mongodb.net/test?retryWrites=true&w=majority'
-//unset  MONGODB_URI
 const dbUrl = process.env.MONGODB_URI || 'mongodb://mongo:27017/task-manager-api'
 
 console.log(dbUrl)
