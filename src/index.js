@@ -1,8 +1,8 @@
 import express from 'express'
 
-import './db/mongoose.js'
-import User from './models/user.js'
-import Task from './models/task.js'
+import './db/mongoose'
+import User from './models/user'
+import Task from './models/task'
 
 const app = express()
 const port = process.env.PORT || 3000
