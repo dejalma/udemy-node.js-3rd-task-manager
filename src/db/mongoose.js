@@ -11,28 +11,28 @@ mongoose.connect(dbUrl, {
 })
 
 
-import User from '../models/user.js'
-import Task from '../models/task.js'
+// import User from '../models/user.js'
+// import Task from '../models/task.js'
 
-const me = new User({
-    name: '   Bê ',
-    email: 'dejalma.Arantes@gmail.com    ',
-    password: 'passworxxxx                                    '
-})
+// const me = new User({
+//     name: '   Bê ',
+//     email: 'dejalma.Arantes@gmail.com    ',
+//     password: 'passworxxxx                                    '
+// })
 
-me.save().then((doc) => {
-    console.log(doc)
-}).catch((error) => {
-    console.error(error)
-})
+// me.save().then((doc) => {
+//     console.log(doc)
+// }).catch((error) => {
+//     console.error(error)
+// })
 
 
-const task = new Task({
-    description: 'Make Bê sleep'
-})
+// const task = new Task({
+//     description: 'Make Bê sleep'
+// })
 
-task.save().then((doc) => {
-    console.log(doc);
-}).catch((error) => {
-    console.error(error);
-})
+// task.save().then((doc) => {
+//     console.log(doc);
+// }).catch((error) => {
+//     console.error(error);
+// })
