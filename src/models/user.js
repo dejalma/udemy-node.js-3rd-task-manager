@@ -1,7 +1,10 @@
 import mongoose from 'mongoose'
 import validator from 'validator'
+import bycrypt from 'bcryptjs'
 
-const User = mongoose.model('User', {
+const HASH_ITERATIONS = 9
+
+const UserSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -33,11 +36,23 @@ const User = mongoose.model('User', {
         trim: true,
         minlength: 7,
         validate(value) {
-            if(value.search(new RegExp("password", "i")) >= 0) {
+            if (value.search(new RegExp("password", "i")) >= 0) {
                 throw new Error("Password contains 'password'.")
             }
         }
     }
 })
+
+UserSchema.pre('save', async function (next) {
+    const user = this
+
+    if (user.isModified('password')) {
+        user.password = await bycrypt.hash(user.password, HASH_ITERATIONS)
+    }
+    
+    next()
+})
+
+const User = mongoose.model('User', UserSchema)
 
 export default User
