@@ -69,6 +69,16 @@ UserSchema.statics.findByCredentials = async (email, password) => {
 
 const SECRET_JWT = 'node.js Andrew Mead´s Udemy course secret seed 123@#$%¨&*(~ç'
 
+UserSchema.methods.toJSON = function () {
+    const user = this
+
+    const userObject = user.toObject()
+    delete userObject.password
+    delete userObject.tokens
+
+    return userObject
+}
+
 UserSchema.methods.generateAuthToken = async function () {
     const user = this
     const token = jwt.sign({ _id: user._id.toString() }, SECRET_JWT)
