@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 import validator from 'validator'
 import bycrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import Task from './task.js'
 
 const HASH_ITERATIONS = 9
 
@@ -101,6 +102,14 @@ UserSchema.pre('save', async function (next) {
     if (user.isModified('password')) {
         user.password = await bycrypt.hash(user.password, HASH_ITERATIONS)
     }
+
+    next()
+})
+
+UserSchema.pre('remove', async function (next) {
+    const user = this
+
+    await Task.deleteMany({ owner: user._id })
 
     next()
 })
