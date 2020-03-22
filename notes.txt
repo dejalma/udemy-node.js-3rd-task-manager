@@ -1,0 +1,10 @@
+To uso on local node.js (without docker):
+ 
+export MONGODB_URI='mongodb://localhost:27017/task-manager-db'
+echo MONGODB_URI
+
+Alert:
+
+* jest 25 + babel 7 + node.js 13 + ES6:
+  Using babel.config.js couses error. See: https://github.com/babel/babel-loader/issues/824.
+  Use babel.config.json.
