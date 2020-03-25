@@ -7,7 +7,7 @@
   "scripts": {
     "start": "babel-node src/index.js",
     "dev": "nodemon --experimental-modules -L src/index.js",
-    "test": "jest --coverage --watch"
+    "test": "jest --coverage --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -29,20 +29,5 @@
     "babel-jest": "^25.1.0",
     "jest": "^25.1.0",
     "nodemon": "^2.0.2"
-  },
-  "jest": {
-    "verbose": true,
-    "transform": {
-      "\\.js$": [
-        "babel-jest"
-      ]
-    }
-  },
-  "env": {
-    "test": {
-      "plugins": [
-        "@babel/plugin-transform-modules-commonjs"
-      ]
-    }
   }
 }
